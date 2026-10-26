@@ -24,21 +24,8 @@ Sistema web académico para administrar solicitudes de admisión a una instituci
 
 No hay `package.json` en este proyecto, por lo que **no es necesario ejecutar `npm install`** para utilizar la versión entregada.
 
-## 3. Funcionalidades realmente implementadas
 
-1. Registro de cuentas de aspirantes y acceso mediante usuario y contraseña.
-2. Roles `ASPIRANTE`, `ADMISIONES` y `ADMIN`; reglas de acceso en los controladores.
-3. Catálogo de programas académicos con modalidades `ESCOLARIZADA`, `MIXTA` y `EN_LINEA`; alta por administrador.
-4. Una solicitud de aspirante por cuenta registrada; selección de programa activo y consulta de expediente.
-5. Estatus de solicitudes: `REGISTRADO`, `EN_REVISION`, `ACEPTADO` y `RECHAZADO`.
-6. Carga de documentos PDF/JPG/PNG (máximo 5 MB) en almacenamiento privado, descarga autorizada y revisión del personal.
-7. Captura **manual administrativa** de pagos y estatus `PENDIENTE`, `VALIDADO`, `RECHAZADO` (sin cobro en línea).
-8. Seguimiento con observaciones, estado del expediente y usuario responsable.
-9. Panel de indicadores generales del personal y búsqueda por nombre/apellido.
-
-**Alcances y limitaciones:** no se genera folio alfanumérico independiente; el expediente se identifica mediante `id_aspirante`. No hay recuperación de contraseñas, verificación efectiva de correo, pagos con tarjeta ni pruebas automatizadas funcionales incluidas. No afirmar estas funciones como terminadas.
-
-## 4. Diseño orientado a objetos y diagrama UML
+## 3. Diseño orientado a objetos y diagrama UML
 
 **Diagrama de clases:** [`docs/diagrama_clases.mmd`](docs/diagrama_clases.mmd) (Mermaid, visible en GitHub) y [`docs/diagrama_clases.puml`](docs/diagrama_clases.puml) (PlantUML).
 
@@ -57,7 +44,7 @@ Los modelos heredan de `Illuminate\Database\Eloquent\Model` (excepto `User`, que
 
 **Principios POO identificables:** abstracción del dominio en clases, herencia de modelos/controladores, encapsulación parcial mediante métodos y `$fillable`, composición/asociación mediante relaciones ORM, y reutilización de los métodos heredados de Eloquent. El código no contiene una capa `Service` independiente ni interfaces de dominio personalizadas: no se atribuyen patrones no implementados.
 
-## 5. Estructura del repositorio
+## 4. Estructura del repositorio
 
 ```text
 crm_aspirantes/
@@ -82,7 +69,7 @@ crm_aspirantes/
 └── artisan
 ```
 
-## 6. Instalación desde cero (Windows, XAMPP y PowerShell)
+## 5. Instalación desde cero (Windows, XAMPP y PowerShell)
 
 **Prerequisitos:** PHP 8.2+ en terminal, Composer 2, extensiones PHP `pdo_mysql`, `mbstring`, `openssl`, `fileinfo`, `xml` y una instancia MySQL accesible. Para esta versión use el código del **repositorio directamente**; **no cree otro proyecto Laravel ni reemplace sus archivos**.
 
@@ -141,7 +128,7 @@ php artisan serve --host=127.0.0.1 --port=8000
 
 **Cuenta demo creada por el seeder (solo local):** correo `admin@crm.local`, contraseña `CrmDemo123!`.
 
-## 7. Recorrido funcional para evaluación
+## 6. Recorrido funcional para evaluación
 
 1. Entre con `admin@crm.local` en un entorno **local de prueba**.
 2. Compruebe el panel de indicadores y el catálogo de programas académicos precargados.
@@ -150,9 +137,9 @@ php artisan serve --host=127.0.0.1 --port=8000
 5. Consulte su expediente y adjunte un PDF/JPG/PNG de prueba sin datos personales reales.
 6. Inicie sesión como administrador para revisar el expediente, cambiar su estatus y agregar una observación.
 
-## 8. Verificación y pruebas
+## 7. Verificación y pruebas
 
-Se recomienda ejecutar en el equipo del evaluador:
+Se recomienda ejecutar:
 
 ```powershell
 php artisan route:list
@@ -160,6 +147,6 @@ php artisan migrate:status
 php artisan test
 ```
 
-## 9. Licencia
+## 8. Licencia
 
 Proyecto preparado con fines académicos para la Maestría en Ingeniería y Desarrollo de Software (MIDS).

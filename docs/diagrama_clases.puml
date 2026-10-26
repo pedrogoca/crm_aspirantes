@@ -1,0 +1,59 @@
+@startuml
+left to right direction
+skinparam classAttributeIconSize 0
+class User {
+  +id: bigint
+  +name: string
+  +email: string
+  +password: string
+  +rol: string
+  +aspirante()
+  +esPersonal(): bool
+}
+class ProgramaAcademico {
+  +id_programa: bigint
+  +nombre: string
+  +modalidad: string
+  +activo: bool
+  +aspirantes()
+}
+class Aspirante {
+  +id_aspirante: bigint
+  +id_usuario: bigint
+  +id_programa: bigint
+  +estatus: string
+  +usuario()
+  +programa()
+  +documentos()
+  +pagos()
+  +seguimientos()
+}
+class Documento {
+  +id_documento: bigint
+  +tipo_documento: string
+  +ruta_archivo: string
+  +estatus: string
+  +aspirante()
+}
+class Pago {
+  +id_pago: bigint
+  +concepto: string
+  +monto: decimal
+  +estatus: string
+  +aspirante()
+}
+class Seguimiento {
+  +id_seguimiento: bigint
+  +id_usuario: bigint
+  +estatus: string
+  +observaciones: text
+  +aspirante()
+  +usuario()
+}
+User "1" -- "0..1" Aspirante : cuenta
+ProgramaAcademico "1" -- "0..*" Aspirante : programa
+Aspirante "1" -- "0..*" Documento : documentos
+Aspirante "1" -- "0..*" Pago : pagos
+Aspirante "1" -- "0..*" Seguimiento : seguimientos
+User "1" -- "0..*" Seguimiento : responsable
+@enduml

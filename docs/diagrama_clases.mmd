@@ -1,0 +1,64 @@
+classDiagram
+    direction LR
+    class User {
+        +id
+        +name
+        +email
+        +password
+        +rol
+        +aspirante()
+        +esPersonal() bool
+    }
+    class ProgramaAcademico {
+        +id_programa
+        +nombre
+        +modalidad
+        +activo
+        +aspirantes()
+    }
+    class Aspirante {
+        +id_aspirante
+        +id_usuario
+        +id_programa
+        +nombre
+        +apellido_paterno
+        +apellido_materno
+        +telefono
+        +estatus
+        +usuario()
+        +programa()
+        +documentos()
+        +pagos()
+        +seguimientos()
+    }
+    class Documento {
+        +id_documento
+        +id_aspirante
+        +tipo_documento
+        +ruta_archivo
+        +estatus
+        +aspirante()
+    }
+    class Pago {
+        +id_pago
+        +id_aspirante
+        +concepto
+        +monto
+        +estatus
+        +aspirante()
+    }
+    class Seguimiento {
+        +id_seguimiento
+        +id_aspirante
+        +id_usuario
+        +estatus
+        +observaciones
+        +aspirante()
+        +usuario()
+    }
+    User "1" --> "0..1" Aspirante : cuenta
+    ProgramaAcademico "1" --> "0..*" Aspirante : oferta
+    Aspirante "1" --> "0..*" Documento : adjunta
+    Aspirante "1" --> "0..*" Pago : registra
+    Aspirante "1" --> "0..*" Seguimiento : recibe
+    User "1" --> "0..*" Seguimiento : responsable

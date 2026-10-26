@@ -162,4 +162,4 @@ php artisan test
 
 ## 9. Licencia
 
-Proyecto preparado con fines académicos para la Maestría en Ingeniería y Desarrollo de Software (MIDS). # crm_aspirantes
+Proyecto preparado con fines académicos para la Maestría en Ingeniería y Desarrollo de Software (MIDS).

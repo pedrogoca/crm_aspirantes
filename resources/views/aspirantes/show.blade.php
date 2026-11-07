@@ -4,7 +4,7 @@
 @section('title','Expediente #'.$a->id_aspirante)
 
 @section('content')
-<div class="card"><h2>{{ $a->nombre }} {{ $a->apellido_paterno }} {{ $a->apellido_materno }}</h2><p><b>Programa:</b> {{ $a->programa->nombre }} | <b>Estatus:</b> {{ $a->estatus }} | <b>Teléfono:</b> {{ $a->telefono ?: 'Sin registrar' }}</p></div>
+<div class="card"><p><a href="{{ route('aspirantes.pdf', $a) }}">Descargar ficha PDF</a></p><h2>{{ $a->nombre }} {{ $a->apellido_paterno }} {{ $a->apellido_materno }}</h2><p><b>Programa:</b> {{ $a->programa->nombre }} | <b>Estatus:</b> {{ $a->estatus }} | <b>Teléfono:</b> {{ $a->telefono ?: 'Sin registrar' }}</p></div>
 
 @if(auth()->user()->esPersonal())
 <div class="card"><h2>Actualizar estatus de admisión</h2><form method="post" action="{{ route('aspirantes.update',$a) }}">

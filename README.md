@@ -239,9 +239,11 @@ Accept: application/json
 ```json
 {
   "email": "admin@crm.local",
-  "password": "CONTRASEÑA_LOCAL_DE_PRUEBA"
+  "password": "CrmDemo123!"
 }
 ```
+Estos datos son solo de prueba para se pueda ingresar.
+
 
 Una respuesta satisfactoria contiene `token_type`, `access_token` y `expires_in`. Para consultar el usuario autenticado:
 
